@@ -1,0 +1,113 @@
+<Principal_Screen>:
+    BoxLayout:
+        canvas:
+            Color: 
+                rgba: [1,1,1, 1] 
+            Rectangle:
+                size: self.size
+        orientation: 'vertical'
+        BoxLayout:
+            
+            orientation: 'vertical'
+            Label:
+                color: 0,0,0,0.8
+                text: 'BIENVENIDO!!'
+                font_size: 45
+            Label:
+                id: mostrar_usuario
+                color: 0,0,0,0.8
+                text: ''
+                font_size: 40
+            TextInput:
+                id: usuario
+                hint_text: 'INGRESE SU NOMBRE'
+                multiline: False
+                on_text: root.Mostrar()
+            Button:
+                text: 'GUARDAR'
+                on_release: root.Registrar()
+
+        BoxLayout:
+            orientation: 'vertical'
+            canvas:
+                Color: 
+                    rgba: [1,1,1, 1] 
+                Rectangle:
+                    size: self.size
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    color: 0,0,0,0.8
+                    text: 'RESPONDA EN EL TIEMPO INDICADO:'
+                    font_size: 30
+                Label:
+                    id: contador
+                    text: '10'
+                    color: 0,0,0,0.8
+                    size_hint: (.3, 1)
+            BoxLayout:
+                canvas:
+                    Color:
+                        rgba: [0,0,0,1]
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+                GridLayout:
+                    cols: 2
+                    Label:
+                        id: numeroa
+                        text: '+'
+                    BoxLayout:
+                        Label:
+                            text: '='
+                        TextInput:
+                            id: respuesta
+                            hint_text: 'RESPUESTA'
+                            multiline: False
+                            on_text_validate: root.Generar_Numeros()
+                            on_text_validate: root.Nueva()
+                        Button:
+                            text: 'Iniciar'
+                            on_release: root.Tiempo()
+                            on_release: root.Generar_Numeros()
+                            #on_release: root.abrir_pop()
+                    Label:
+                        id: numerob
+                        text: '-'
+                    BoxLayout:
+                        Label:
+                            text: 'Racha:'
+                        Label:
+                            id: racha
+                            text: '0'
+<Pop>:
+    id: pop
+    auto_dismiss: False
+    size_hint: .8,.8
+    title: 'TABLA DE RESULTADOS'
+    BoxLayout:
+        GridLayout:
+            cols: 2
+            Label:
+                text: 'NOMBRE'
+            Label:
+                text: 'PUNTAJE'
+            Label:
+                id: labelnombre
+                text: ''
+            Label:
+                id: labelpuntaje
+                text: ''
+            Label:
+                id: lblu1
+            Label:
+                id: lblp1
+            Label:
+                id: lblu2
+            Label:
+                id: lblp2
+            Label:
+                id: lblu3
+            Label:
+                id: lblp3
+            
